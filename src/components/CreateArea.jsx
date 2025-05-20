@@ -22,23 +22,68 @@ const CreateArea = ({ onAdd }) => {
 
   return (
     <div>
-      <form className="create-note">
-        <input name="title" onChange={handleChange} value={note.title} placeholder="Title" />
-        <textarea
-          name="content"
+       <form className='create-note' onSubmit={handleSubmit}>
+        <input
+          name="title"
+          value={note.title}
           onChange={handleChange}
-          value={note.content}
-          placeholder="Take a note..."
-          rows={isExpanded ? '3' : '1'}
-          onClick={handleClick}
+          placeholder="Title"
+          required
         />
-        <button onClick={handleSubmit}>
-            Add Note
-          <i className="fas fa-plus"></i>
-        </button>
+        <input
+          name="content"
+          value={note.content}
+          onChange={handleChange}
+          placeholder="Take a note..."
+          rows="3"
+          required
+        />
+        <button type="submit">Add</button>
       </form>
     </div>
   );
 };
 
 export default CreateArea;
+
+// import React, { useState } from 'react';
+
+// const CreateArea = ({ onAdd }) => {
+//   const [note, setNote] = useState({ title: '', content: '' });
+
+//   const handleChange = (event) => {
+//     const { name, value } = event.target;
+//     setNote((prevNote) => ({ ...prevNote, [name]: value }));
+//   };
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     onAdd(note);
+//     setNote({ title: '', content: '' });
+//   };
+
+//   return (
+//     <div className="create-note">
+    //   <form onSubmit={handleSubmit}>
+    //     <input
+    //       name="title"
+    //       value={note.title}
+    //       onChange={handleChange}
+    //       placeholder="Title"
+    //       required
+    //     />
+    //     <textarea
+    //       name="content"
+    //       value={note.content}
+    //       onChange={handleChange}
+    //       placeholder="Take a note..."
+    //       rows="3"
+    //       required
+    //     />
+    //     <button type="submit">Add</button>
+    //   </form>
+//     </div>
+//   );
+// };
+
+// export default CreateArea;

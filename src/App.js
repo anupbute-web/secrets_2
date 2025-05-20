@@ -19,12 +19,14 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className='main_class'>
       <Header />
       <CreateArea onAdd={addNote} />
-      {notes.map((note, index) => (
+      <div className='note_list'>
+        {notes.map((note, index) => (
         <Note key={index} id={index} title={note.title} content={note.content} onDelete={deleteNote} />
       ))}
+      </div>
       <Footer />
     </div>
   );

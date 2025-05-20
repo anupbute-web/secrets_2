@@ -10,11 +10,11 @@ body {
   min-height: 100vh;
 }
 
-.container {
-  width: 100%;
-  max-width: 800px;
-  padding: 20px;
-  box-sizing: border-box;
+.main_class{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
@@ -27,16 +27,21 @@ h1 {
 /* Create Note Form */
 .create-note {
   background-color: #fff;
-  padding: 20px;
+  min-width: 100px;
+  width: 800px;
+  padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
-  
 }
 
 .create-note input,
 .create-note textarea {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   margin-bottom: 10px;
   border: 2px solid #007bff;
@@ -70,20 +75,25 @@ textarea {
 }
 
 /* Notes List */
-.notes-list {
+
+.note_list{
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  justify-content: center; 
+  align-items: center;
 }
+
 
 .note {
   background-color: #fff;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 280px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  
+  min-width: 200px;
+  margin-bottom: 10px;
+  margin-left: 10px;     
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .note:hover {
@@ -120,7 +130,17 @@ textarea {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .note {
+  .create-note {
     width: 100%;
   }
+  .note {
+    width: calc(50% - 16px); /* Two items per row on medium screens */
+  }
 }
+
+@media (max-width: 480px) {
+  .note {
+    width: calc(100% - 16px); /* One item per row on small screens */
+  }
+}
+

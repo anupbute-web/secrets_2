@@ -11,7 +11,6 @@ const Note = ({ id, title, content, onDelete }) => {
       <p>{content}</p>
       <button onClick={handleClick}>
         Delete
-        <i className="fas fa-trash-alt"></i>
       </button>
     </div>
   );
